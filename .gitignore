@@ -1,0 +1,6 @@
+Prototypes
+__pycache__
+*.pyc
+build
+dist
+*.spec
