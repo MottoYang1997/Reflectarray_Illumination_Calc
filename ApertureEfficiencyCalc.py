@@ -138,7 +138,7 @@ def calculate():
         taper_efficiency, spillover_efficiency = calculation_data.calc_taper_and_spillover_efficiency_oneshot(feed_data, aperture_data)
         aperture_efficiency = taper_efficiency * spillover_efficiency
         # Create a messagebox from tkinter showing the results
-        str_msg = "Taper Efficiency: {0:.2f}%\nSpillover Efficiency: {1:.2f}%\nAperture Efficiency: {2:.2f}%".format(taper_efficiency * 100, spillover_efficiency * 100, aperture_efficiency * 100)
+        str_msg = "Taper Efficiency: {0:.2f}%\nSpillover Efficiency: {1:.2f}%\nTaper x Spillover Efficiency: {2:.2f}%".format(taper_efficiency * 100, spillover_efficiency * 100, aperture_efficiency * 100)
         progress_bar['value'] = 100
         progress_bar.update_idletasks()
         tk.messagebox.showinfo("Results", str_msg)
@@ -153,7 +153,7 @@ def calculate():
         var_linspace = np.linspace(var_start, var_end, var_step)
         plot_window.add_trace(var_linspace, taper_efficiency*100, "Taper Efficiency") # TODO: Make it Dash Line
         plot_window.add_trace(var_linspace, spillover_efficiency*100, "Spillover Efficiency") # TODO: Make it Dash Line
-        plot_window.add_trace(var_linspace, aperture_efficiency*100, "Aperture Efficiency")
+        plot_window.add_trace(var_linspace, aperture_efficiency*100, "Taper x Spillover Efficiency")
         plot_window.set_title("Efficiencies (%)")
         plot_window.set_x_label(var_name)
         progress_bar['value'] = 100
